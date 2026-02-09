@@ -1,0 +1,608 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		2ED3FED22F39C5E20009CDEC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ED3FEB72F39C5E00009CDEC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2ED3FEBE2F39C5E00009CDEC;
+			remoteInfo = "La Loteria";
+		};
+		2ED3FEDC2F39C5E20009CDEC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ED3FEB72F39C5E00009CDEC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2ED3FEBE2F39C5E00009CDEC;
+			remoteInfo = "La Loteria";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2ED3FEBF2F39C5E00009CDEC /* La Loteria.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "La Loteria.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ED3FED12F39C5E20009CDEC /* La LoteriaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "La LoteriaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ED3FEDB2F39C5E20009CDEC /* La LoteriaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "La LoteriaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		2E5C5E2A2F4196EC0035F05C /* Exceptions for "La Loteria" folder in "La Loteria" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"La-Loteria-Info.plist",
+			);
+			target = 2ED3FEBE2F39C5E00009CDEC /* La Loteria */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		2ED3FEC12F39C5E00009CDEC /* La Loteria */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				2E5C5E2A2F4196EC0035F05C /* Exceptions for "La Loteria" folder in "La Loteria" target */,
+			);
+			path = "La Loteria";
+			sourceTree = "<group>";
+		};
+		2ED3FED42F39C5E20009CDEC /* La LoteriaTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "La LoteriaTests";
+			sourceTree = "<group>";
+		};
+		2ED3FEDE2F39C5E20009CDEC /* La LoteriaUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "La LoteriaUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2ED3FEBC2F39C5E00009CDEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2ED3FECE2F39C5E20009CDEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2ED3FED82F39C5E20009CDEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2ED3FEB62F39C5E00009CDEC = {
+			isa = PBXGroup;
+			children = (
+				2ED3FEC12F39C5E00009CDEC /* La Loteria */,
+				2ED3FED42F39C5E20009CDEC /* La LoteriaTests */,
+				2ED3FEDE2F39C5E20009CDEC /* La LoteriaUITests */,
+				2ED3FEC02F39C5E00009CDEC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2ED3FEC02F39C5E00009CDEC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2ED3FEBF2F39C5E00009CDEC /* La Loteria.app */,
+				2ED3FED12F39C5E20009CDEC /* La LoteriaTests.xctest */,
+				2ED3FEDB2F39C5E20009CDEC /* La LoteriaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2ED3FEBE2F39C5E00009CDEC /* La Loteria */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2ED3FEE52F39C5E20009CDEC /* Build configuration list for PBXNativeTarget "La Loteria" */;
+			buildPhases = (
+				2ED3FEBB2F39C5E00009CDEC /* Sources */,
+				2ED3FEBC2F39C5E00009CDEC /* Frameworks */,
+				2ED3FEBD2F39C5E00009CDEC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				2ED3FEC12F39C5E00009CDEC /* La Loteria */,
+			);
+			name = "La Loteria";
+			packageProductDependencies = (
+			);
+			productName = "La Loteria";
+			productReference = 2ED3FEBF2F39C5E00009CDEC /* La Loteria.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2ED3FED02F39C5E20009CDEC /* La LoteriaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2ED3FEE82F39C5E20009CDEC /* Build configuration list for PBXNativeTarget "La LoteriaTests" */;
+			buildPhases = (
+				2ED3FECD2F39C5E20009CDEC /* Sources */,
+				2ED3FECE2F39C5E20009CDEC /* Frameworks */,
+				2ED3FECF2F39C5E20009CDEC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2ED3FED32F39C5E20009CDEC /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				2ED3FED42F39C5E20009CDEC /* La LoteriaTests */,
+			);
+			name = "La LoteriaTests";
+			packageProductDependencies = (
+			);
+			productName = "La LoteriaTests";
+			productReference = 2ED3FED12F39C5E20009CDEC /* La LoteriaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2ED3FEDA2F39C5E20009CDEC /* La LoteriaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2ED3FEEB2F39C5E20009CDEC /* Build configuration list for PBXNativeTarget "La LoteriaUITests" */;
+			buildPhases = (
+				2ED3FED72F39C5E20009CDEC /* Sources */,
+				2ED3FED82F39C5E20009CDEC /* Frameworks */,
+				2ED3FED92F39C5E20009CDEC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2ED3FEDD2F39C5E20009CDEC /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				2ED3FEDE2F39C5E20009CDEC /* La LoteriaUITests */,
+			);
+			name = "La LoteriaUITests";
+			packageProductDependencies = (
+			);
+			productName = "La LoteriaUITests";
+			productReference = 2ED3FEDB2F39C5E20009CDEC /* La LoteriaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2ED3FEB72F39C5E00009CDEC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2620;
+				LastUpgradeCheck = 2620;
+				TargetAttributes = {
+					2ED3FEBE2F39C5E00009CDEC = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					2ED3FED02F39C5E20009CDEC = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = 2ED3FEBE2F39C5E00009CDEC;
+					};
+					2ED3FEDA2F39C5E20009CDEC = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = 2ED3FEBE2F39C5E00009CDEC;
+					};
+				};
+			};
+			buildConfigurationList = 2ED3FEBA2F39C5E00009CDEC /* Build configuration list for PBXProject "La Loteria" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2ED3FEB62F39C5E00009CDEC;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 2ED3FEC02F39C5E00009CDEC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2ED3FEBE2F39C5E00009CDEC /* La Loteria */,
+				2ED3FED02F39C5E20009CDEC /* La LoteriaTests */,
+				2ED3FEDA2F39C5E20009CDEC /* La LoteriaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2ED3FEBD2F39C5E00009CDEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2ED3FECF2F39C5E20009CDEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2ED3FED92F39C5E20009CDEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2ED3FEBB2F39C5E00009CDEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2ED3FECD2F39C5E20009CDEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2ED3FED72F39C5E20009CDEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2ED3FED32F39C5E20009CDEC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2ED3FEBE2F39C5E00009CDEC /* La Loteria */;
+			targetProxy = 2ED3FED22F39C5E20009CDEC /* PBXContainerItemProxy */;
+		};
+		2ED3FEDD2F39C5E20009CDEC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2ED3FEBE2F39C5E00009CDEC /* La Loteria */;
+			targetProxy = 2ED3FEDC2F39C5E20009CDEC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2ED3FEE32F39C5E20009CDEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = FYRP82KMX9;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2ED3FEE42F39C5E20009CDEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = FYRP82KMX9;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2ED3FEE62F39C5E20009CDEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FYRP82KMX9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "La-Loteria-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "La Loteria ";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "\"This app does not access the microphone. Audio is used only for card announcements.\"";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Esta aplicación utiliza síntesis de voz para anunciar las cartas de Lotería. | This app uses speech synthesis to announce Lotería cards.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Bryan.La-Loteria";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2ED3FEE72F39C5E20009CDEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FYRP82KMX9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "La-Loteria-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "La Loteria ";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.games";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "\"This app does not access the microphone. Audio is used only for card announcements.\"";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Esta aplicación utiliza síntesis de voz para anunciar las cartas de Lotería. | This app uses speech synthesis to announce Lotería cards.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Bryan.La-Loteria";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2ED3FEE92F39C5E20009CDEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FYRP82KMX9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Bryan.La-LoteriaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/La Loteria.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/La Loteria";
+			};
+			name = Debug;
+		};
+		2ED3FEEA2F39C5E20009CDEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FYRP82KMX9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Bryan.La-LoteriaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/La Loteria.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/La Loteria";
+			};
+			name = Release;
+		};
+		2ED3FEEC2F39C5E20009CDEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FYRP82KMX9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Bryan.La-LoteriaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "La Loteria";
+			};
+			name = Debug;
+		};
+		2ED3FEED2F39C5E20009CDEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FYRP82KMX9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Bryan.La-LoteriaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "La Loteria";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2ED3FEBA2F39C5E00009CDEC /* Build configuration list for PBXProject "La Loteria" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2ED3FEE32F39C5E20009CDEC /* Debug */,
+				2ED3FEE42F39C5E20009CDEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2ED3FEE52F39C5E20009CDEC /* Build configuration list for PBXNativeTarget "La Loteria" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2ED3FEE62F39C5E20009CDEC /* Debug */,
+				2ED3FEE72F39C5E20009CDEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2ED3FEE82F39C5E20009CDEC /* Build configuration list for PBXNativeTarget "La LoteriaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2ED3FEE92F39C5E20009CDEC /* Debug */,
+				2ED3FEEA2F39C5E20009CDEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2ED3FEEB2F39C5E20009CDEC /* Build configuration list for PBXNativeTarget "La LoteriaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2ED3FEEC2F39C5E20009CDEC /* Debug */,
+				2ED3FEED2F39C5E20009CDEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2ED3FEB72F39C5E00009CDEC /* Project object */;
+}
