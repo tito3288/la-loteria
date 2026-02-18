@@ -9,10 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var gameManager = LoteriaGameManager()
-    @State private var settings = SettingsManager()
-    @State private var speechManager = SpeechManager()
+    let settings: SettingsManager
+    let speechManager: SpeechManager
+    let onExit: (() -> Void)?          // Back to mode selection
     @State private var showHistory = false
     @State private var showSettings = false
+
+    init(
+        settings: SettingsManager,
+        speechManager: SpeechManager,
+        onExit: (() -> Void)? = nil
+    ) {
+        self.settings = settings
+        self.speechManager = speechManager
+        self.onExit = onExit
+    }
     
     var body: some View {
         ZStack {
@@ -74,6 +85,17 @@ struct ContentView: View {
     
     private var headerView: some View {
         HStack {
+            // Back to mode selection
+            if let onExit {
+                Button(action: onExit) {
+                    Image(systemName: "chevron.left")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundStyle(.white)
+                        .frame(width: 44, height: 44)
+                        .background(Circle().fill(.white.opacity(0.2)))
+                }
+            }
+
             Text(settings.localize(.loteria))
                 .font(.system(size: 32, weight: .bold))
                 .foregroundStyle(.white)
@@ -597,5 +619,7 @@ struct SettingsView: View {
 }
 
 #Preview {
-    ContentView()
+    @Previewable @State var settings = SettingsManager()
+    @Previewable @State var speechManager = SpeechManager()
+    ContentView(settings: settings, speechManager: speechManager)
 }

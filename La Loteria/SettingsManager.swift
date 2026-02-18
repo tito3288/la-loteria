@@ -69,7 +69,45 @@ class SettingsManager {
         case selectLanguage
         case voiceAnnouncements
         case enableVoice
-        
+        // Mode Selection
+        case chooseMode
+        case callerMode
+        case callerModeDesc
+        case playMode
+        case playModeDesc
+        // Play Mode — Difficulty
+        case chooseDifficulty
+        case easy
+        case easyDesc
+        case medium
+        case mediumDesc
+        case hard
+        case hardDesc
+        case startGame
+        // Play Mode — In Game
+        case yourBoard
+        case cpuBoard
+        case calledCards
+        case markYourCard
+        case cardCalled
+        case wins
+        case losses
+        case draws
+        // Win Conditions
+        case chooseWinCondition
+        case winRow
+        case winColumn
+        case winDiagonal
+        case winFullBoard
+        // Result Screen
+        case youWin
+        case youLose
+        case draw
+        case playAgain
+        case backToMenu
+        case score
+        case bingo
+
         var spanish: String {
             switch self {
             case .loteria: return "Lotería"
@@ -98,9 +136,47 @@ class SettingsManager {
             case .selectLanguage: return "Seleccionar Idioma"
             case .voiceAnnouncements: return "Anuncios de Voz"
             case .enableVoice: return "Habilitar llamadas de voz"
+            // Mode Selection
+            case .chooseMode: return "¿Cómo quieres jugar?"
+            case .callerMode: return "Modo Cantor"
+            case .callerModeDesc: return "Canta las cartas para que tus jugadores marquen sus tablas físicas."
+            case .playMode: return "Modo Jugador"
+            case .playModeDesc: return "Juega contra la computadora con tu propia tabla digital."
+            // Difficulty
+            case .chooseDifficulty: return "Elige la Dificultad"
+            case .easy: return "Fácil"
+            case .easyDesc: return "8 seg. por carta"
+            case .medium: return "Normal"
+            case .mediumDesc: return "5 seg. por carta"
+            case .hard: return "Difícil"
+            case .hardDesc: return "3 seg. por carta"
+            case .startGame: return "¡Empezar!"
+            // In Game
+            case .yourBoard: return "Tu Tabla"
+            case .cpuBoard: return "Rival"
+            case .calledCards: return "Cartas Cantadas"
+            case .markYourCard: return "¡Toca tus cartas para marcarlas!"
+            case .cardCalled: return "Carta cantada"
+            case .wins: return "Victorias"
+            case .losses: return "Derrotas"
+            case .draws: return "Empates"
+            // Win Conditions
+            case .chooseWinCondition: return "¿Cómo se gana?"
+            case .winRow: return "Fila completa"
+            case .winColumn: return "Columna completa"
+            case .winDiagonal: return "Diagonal"
+            case .winFullBoard: return "Tabla llena"
+            // Result
+            case .youWin: return "¡Ganaste! 🎉"
+            case .youLose: return "¡Ganó la computadora! 😔"
+            case .draw: return "¡Empate! 🤝"
+            case .playAgain: return "¡Revancha!"
+            case .backToMenu: return "Menú Principal"
+            case .score: return "Marcador"
+            case .bingo: return "¡LOTERÍA!"
             }
         }
-        
+
         var english: String {
             switch self {
             case .loteria: return "Lotería"
@@ -129,6 +205,44 @@ class SettingsManager {
             case .selectLanguage: return "Select Language"
             case .voiceAnnouncements: return "Voice Announcements"
             case .enableVoice: return "Enable voice calling"
+            // Mode Selection
+            case .chooseMode: return "How do you want to play?"
+            case .callerMode: return "Caller Mode"
+            case .callerModeDesc: return "Call cards while players mark their own physical boards."
+            case .playMode: return "Player Mode"
+            case .playModeDesc: return "Play against the computer with your own digital board."
+            // Difficulty
+            case .chooseDifficulty: return "Choose Difficulty"
+            case .easy: return "Easy"
+            case .easyDesc: return "8 sec. per card"
+            case .medium: return "Normal"
+            case .mediumDesc: return "5 sec. per card"
+            case .hard: return "Hard"
+            case .hardDesc: return "3 sec. per card"
+            case .startGame: return "Let's Play!"
+            // In Game
+            case .yourBoard: return "Your Board"
+            case .cpuBoard: return "Rival"
+            case .calledCards: return "Called Cards"
+            case .markYourCard: return "Tap your cards to mark them!"
+            case .cardCalled: return "Card called"
+            case .wins: return "Wins"
+            case .losses: return "Losses"
+            case .draws: return "Draws"
+            // Win Conditions
+            case .chooseWinCondition: return "Win Condition"
+            case .winRow: return "Complete row"
+            case .winColumn: return "Complete column"
+            case .winDiagonal: return "Diagonal"
+            case .winFullBoard: return "Full board"
+            // Result
+            case .youWin: return "You Win! 🎉"
+            case .youLose: return "Computer Wins! 😔"
+            case .draw: return "It's a Draw! 🤝"
+            case .playAgain: return "Rematch!"
+            case .backToMenu: return "Main Menu"
+            case .score: return "Score"
+            case .bingo: return "LOTERÍA!"
             }
         }
     }
