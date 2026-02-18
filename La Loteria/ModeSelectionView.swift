@@ -147,6 +147,8 @@ struct ModeSelectionView: View {
                     Text(title)
                         .font(.system(size: 20, weight: .bold))
                         .foregroundStyle(.white)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.6)
 
                     Text(description)
                         .font(.system(size: 14, weight: .medium))

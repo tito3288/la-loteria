@@ -82,6 +82,7 @@ class PlayModeGameManager {
     // MARK: Timers
     private var cardTimer: Timer?
     private var progressTimer: Timer?
+    private var pausedTimeRemaining: TimeInterval = 0.0
 
     // MARK: Speech
     var speechManager: SpeechManager?
@@ -99,6 +100,7 @@ class PlayModeGameManager {
         currentCardIndex = -1
         timerProgress = 0.0
         timeElapsed = 0.0
+        pausedTimeRemaining = 0.0
         gameResult = nil
         gameOver = false
         isPlaying = false
@@ -116,15 +118,27 @@ class PlayModeGameManager {
         isPlaying = true
 
         if currentCardIndex == -1 {
+            // Fresh start — call first card immediately
             callNextCard()
+            pausedTimeRemaining = 0.0
         }
 
-        startCardTimer()
+        // If we paused mid-countdown, fire a one-shot timer for the remaining
+        // time, then switch to the normal repeating interval after that.
+        if pausedTimeRemaining > 0 {
+            startCardTimerWithDelay(pausedTimeRemaining)
+            pausedTimeRemaining = 0.0
+        } else {
+            startCardTimer()
+        }
+
         startProgressTimer()
     }
 
     func pause() {
         isPlaying = false
+        // Snapshot how much time is left so we can resume exactly here
+        pausedTimeRemaining = difficulty.interval * (1.0 - timerProgress)
         stopTimers()
     }
 
@@ -164,6 +178,7 @@ class PlayModeGameManager {
         speechManager?.callCard(card.name)
         timeElapsed = 0.0
         timerProgress = 0.0
+        pausedTimeRemaining = 0.0
 
         // CPU auto-marks after a short random delay
         scheduleCPUMark(for: card)
@@ -224,8 +239,26 @@ class PlayModeGameManager {
         cardTimer = t
     }
 
+    /// Fires once after `delay` seconds (the paused remainder), then switches
+    /// to the normal repeating full-interval timer.
+    private func startCardTimerWithDelay(_ delay: TimeInterval) {
+        stopCardTimer()
+        let t = Timer(timeInterval: delay, repeats: false) { [weak self] _ in
+            Task { @MainActor [weak self] in
+                guard let self, self.isPlaying, !self.gameOver else { return }
+                self.callNextCard()
+                self.startCardTimer()
+            }
+        }
+        RunLoop.main.add(t, forMode: .common)
+        cardTimer = t
+    }
+
     private func startProgressTimer() {
         stopProgressTimer()
+        // Seed timeElapsed from current timerProgress so the bar resumes
+        // exactly where it was rather than jumping back to zero.
+        timeElapsed = timerProgress * difficulty.interval
         let interval = 0.05
         let t = Timer(timeInterval: interval, repeats: true) { [weak self] _ in
             Task { @MainActor [weak self] in

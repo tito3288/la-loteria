@@ -137,11 +137,11 @@ class SettingsManager {
             case .voiceAnnouncements: return "Anuncios de Voz"
             case .enableVoice: return "Habilitar llamadas de voz"
             // Mode Selection
-            case .chooseMode: return "¿Cómo quieres jugar?"
-            case .callerMode: return "Modo Cantor"
-            case .callerModeDesc: return "Canta las cartas para que tus jugadores marquen sus tablas físicas."
-            case .playMode: return "Modo Jugador"
-            case .playModeDesc: return "Juega contra la computadora con tu propia tabla digital."
+            case .chooseMode: return "Opciones Para Jugar"
+            case .callerMode: return "Llamar Cartas"
+            case .callerModeDesc: return "Llamo las cartas para que jugadores marquen sus tablas físicas."
+            case .playMode: return "¡Juega Contra Mí!"
+            case .playModeDesc: return "Juega contra la computadora y tu propia tabla digital."
             // Difficulty
             case .chooseDifficulty: return "Elige la Dificultad"
             case .easy: return "Fácil"
@@ -161,7 +161,7 @@ class SettingsManager {
             case .losses: return "Derrotas"
             case .draws: return "Empates"
             // Win Conditions
-            case .chooseWinCondition: return "¿Cómo se gana?"
+            case .chooseWinCondition: return "Elige reglas para ganar"
             case .winRow: return "Fila completa"
             case .winColumn: return "Columna completa"
             case .winDiagonal: return "Diagonal"
@@ -206,10 +206,10 @@ class SettingsManager {
             case .voiceAnnouncements: return "Voice Announcements"
             case .enableVoice: return "Enable voice calling"
             // Mode Selection
-            case .chooseMode: return "How do you want to play?"
-            case .callerMode: return "Caller Mode"
-            case .callerModeDesc: return "Call cards while players mark their own physical boards."
-            case .playMode: return "Player Mode"
+            case .chooseMode: return "Game Options"
+            case .callerMode: return "Call Cards"
+            case .callerModeDesc: return "I call the cards while players mark their physical boards."
+            case .playMode: return "Play Against Me!"
             case .playModeDesc: return "Play against the computer with your own digital board."
             // Difficulty
             case .chooseDifficulty: return "Choose Difficulty"
@@ -230,7 +230,7 @@ class SettingsManager {
             case .losses: return "Losses"
             case .draws: return "Draws"
             // Win Conditions
-            case .chooseWinCondition: return "Win Condition"
+            case .chooseWinCondition: return "Choose winning rules"
             case .winRow: return "Complete row"
             case .winColumn: return "Complete column"
             case .winDiagonal: return "Diagonal"

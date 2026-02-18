@@ -16,8 +16,9 @@ struct PlayModeView: View {
     // Pre-game setup state
     @State private var gameStarted = false
     @State private var selectedDifficulty: Difficulty = .medium
-    @State private var selectedWinConditions: Set<WinCondition> = [.row, .column, .diagonal, .fullBoard]
+    @State private var selectedWinConditions: Set<WinCondition> = [.fullBoard]
     @State private var showScorePopup = false
+    @State private var showRivalPopup = false
 
     private var calledCardIDs: Set<Int> {
         Set(gameManager.calledCards.map(\.id))
@@ -80,62 +81,61 @@ struct PlayModeView: View {
     // MARK: - Setup View (Difficulty + Win Conditions)
 
     private var setupView: some View {
-        ScrollView {
-            VStack(spacing: 28) {
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 12) {
                 // Header
                 HStack {
                     Button(action: onExit) {
                         Image(systemName: "chevron.left")
-                            .font(.system(size: 18, weight: .semibold))
+                            .font(.system(size: 17, weight: .semibold))
                             .foregroundStyle(.white)
-                            .frame(width: 44, height: 44)
+                            .frame(width: 40, height: 40)
                             .background(Circle().fill(.white.opacity(0.2)))
                     }
 
                     Spacer()
 
                     Text("Lotería")
-                        .font(.system(size: 24, weight: .bold))
+                        .font(.system(size: 22, weight: .bold))
                         .foregroundStyle(.white)
 
                     Spacer()
 
-                    // Spacer mirror for alignment
-                    Color.clear.frame(width: 44, height: 44)
+                    Color.clear.frame(width: 40, height: 40)
                 }
                 .padding(.horizontal, 20)
-                .padding(.top, 16)
+                .padding(.top, 12)
 
                 // Difficulty picker
-                VStack(alignment: .leading, spacing: 14) {
+                VStack(alignment: .leading, spacing: 8) {
                     Text(settings.localize(.chooseDifficulty))
-                        .font(.system(size: 20, weight: .bold))
+                        .font(.system(size: 16, weight: .bold))
                         .foregroundStyle(.white)
 
-                    VStack(spacing: 10) {
+                    VStack(spacing: 6) {
                         ForEach(Difficulty.allCases) { diff in
                             difficultyRow(diff)
                         }
                     }
                 }
-                .padding(20)
-                .background(RoundedRectangle(cornerRadius: 24).fill(.white.opacity(0.15)))
+                .padding(14)
+                .background(RoundedRectangle(cornerRadius: 20).fill(.white.opacity(0.15)))
                 .padding(.horizontal, 20)
 
                 // Win condition picker
-                VStack(alignment: .leading, spacing: 14) {
+                VStack(alignment: .leading, spacing: 8) {
                     Text(settings.localize(.chooseWinCondition))
-                        .font(.system(size: 20, weight: .bold))
+                        .font(.system(size: 16, weight: .bold))
                         .foregroundStyle(.white)
 
-                    VStack(spacing: 10) {
+                    VStack(spacing: 6) {
                         ForEach(WinCondition.allCases) { condition in
                             winConditionRow(condition)
                         }
                     }
                 }
-                .padding(20)
-                .background(RoundedRectangle(cornerRadius: 24).fill(.white.opacity(0.15)))
+                .padding(14)
+                .background(RoundedRectangle(cornerRadius: 20).fill(.white.opacity(0.15)))
                 .padding(.horizontal, 20)
 
                 // Score display if there's history
@@ -149,18 +149,18 @@ struct PlayModeView: View {
                     startGame()
                 } label: {
                     Text(settings.localize(.startGame))
-                        .font(.system(size: 20, weight: .bold))
+                        .font(.system(size: 18, weight: .bold))
                         .foregroundStyle(.white)
                         .frame(maxWidth: .infinity)
-                        .padding(.vertical, 18)
+                        .padding(.vertical, 15)
                         .background(
-                            RoundedRectangle(cornerRadius: 18)
+                            RoundedRectangle(cornerRadius: 16)
                                 .fill(selectedWinConditions.isEmpty ? .gray.opacity(0.4) : .green.opacity(0.85))
                         )
                 }
                 .disabled(selectedWinConditions.isEmpty)
                 .padding(.horizontal, 20)
-                .padding(.bottom, 32)
+                .padding(.bottom, 24)
             }
         }
     }
@@ -168,190 +168,183 @@ struct PlayModeView: View {
     // MARK: - Game View
 
     private var gameView: some View {
-        ScrollView {
-            VStack(spacing: 16) {
-                // Nav bar
-                HStack {
-                    Button {
-                        // Pause and exit back to setup
-                        gameManager.pause()
-                        gameStarted = false
-                    } label: {
-                        Image(systemName: "xmark")
-                            .font(.system(size: 16, weight: .semibold))
-                            .foregroundStyle(.white)
-                            .frame(width: 44, height: 44)
-                            .background(Circle().fill(.white.opacity(0.2)))
-                    }
-
-                    Spacer()
-
-                    Text(settings.localize(.bingo))
-                        .font(.system(size: 22, weight: .black))
+        VStack(spacing: 0) {
+            // ── Nav bar ──────────────────────────────────────────────
+            HStack {
+                // Exit
+                Button {
+                    gameManager.pause()
+                    gameStarted = false
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 16, weight: .semibold))
                         .foregroundStyle(.white)
-
-                    Spacer()
-
-                    // Score badge button
-                    Button {
-                        showScorePopup = true
-                    } label: {
-                        HStack(spacing: 5) {
-                            Image(systemName: "chart.bar.fill")
-                                .font(.system(size: 12, weight: .semibold))
-                            Text("\(gameManager.playerWins)-\(gameManager.drawCount)-\(gameManager.cpuWins)")
-                                .font(.system(size: 13, weight: .bold))
-                                .monospacedDigit()
-                        }
-                        .foregroundStyle(.white)
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 10)
-                        .background(Capsule().fill(.white.opacity(0.2)))
-                    }
-                    .popover(isPresented: $showScorePopup, attachmentAnchor: .point(.bottom), arrowEdge: .top) {
-                        scorePopupContent
-                    }
-
-                    // Pause / Resume
-                    Button {
-                        if gameManager.isPlaying {
-                            gameManager.pause()
-                        } else {
-                            gameManager.play()
-                        }
-                    } label: {
-                        Image(systemName: gameManager.isPlaying ? "pause.fill" : "play.fill")
-                            .font(.system(size: 16, weight: .semibold))
-                            .foregroundStyle(.white)
-                            .frame(width: 44, height: 44)
-                            .background(Circle().fill(.white.opacity(0.2)))
-                    }
-                }
-                .padding(.horizontal, 20)
-                .padding(.top, 16)
-
-                // Current card
-                currentCardPanel
-                    .padding(.horizontal, 20)
-
-                // Countdown bar
-                timerBar
-                    .padding(.horizontal, 20)
-
-                // Player board
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(settings.localize(.markYourCard))
-                        .font(.system(size: 12, weight: .medium))
-                        .foregroundStyle(.white.opacity(0.7))
-                        .padding(.horizontal, 20)
-
-                    LoteriaBoardView(
-                        board: gameManager.playerBoard,
-                        title: settings.localize(.yourBoard),
-                        isInteractive: true,
-                        calledCardIDs: calledCardIDs,
-                        onTap: { cellID in
-                            gameManager.playerTap(cellID: cellID)
-                        }
-                    )
-                    .padding(.horizontal, 20)
+                        .frame(width: 40, height: 40)
+                        .background(Circle().fill(.white.opacity(0.2)))
                 }
 
-                // CPU board (read-only, smaller)
-                LoteriaBoardView(
-                    board: gameManager.cpuBoard,
-                    title: settings.localize(.cpuBoard),
-                    isInteractive: false,
-                    calledCardIDs: calledCardIDs,
-                    onTap: nil
-                )
-                .padding(.horizontal, 20)
-                .padding(.bottom, 24)
+                Spacer()
+
+                // Rival
+                Button {
+                    if selectedDifficulty == .easy { gameManager.pause() }
+                    showRivalPopup = true
+                } label: {
+                    HStack(spacing: 5) {
+                        Image(systemName: "person.fill.viewfinder")
+                            .font(.system(size: 12, weight: .semibold))
+                        Text("Rival")
+                            .font(.system(size: 13, weight: .bold))
+                    }
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .background(Capsule().fill(.white.opacity(0.2)))
+                }
+                .sheet(isPresented: $showRivalPopup, onDismiss: {
+                    if selectedDifficulty == .easy { gameManager.play() }
+                }) {
+                    rivalSheetContent
+                }
+
+                Spacer()
+
+                // Score badge
+                Button { showScorePopup = true } label: {
+                    HStack(spacing: 4) {
+                        Image(systemName: "chart.bar.fill")
+                            .font(.system(size: 11, weight: .semibold))
+                        Text("\(gameManager.playerWins)-\(gameManager.drawCount)-\(gameManager.cpuWins)")
+                            .font(.system(size: 12, weight: .bold))
+                            .monospacedDigit()
+                    }
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 8)
+                    .background(Capsule().fill(.white.opacity(0.2)))
+                }
+                .popover(isPresented: $showScorePopup, attachmentAnchor: .point(.bottom), arrowEdge: .top) {
+                    scorePopupContent
+                }
+
+                // Pause / Resume
+                Button {
+                    gameManager.isPlaying ? gameManager.pause() : gameManager.play()
+                } label: {
+                    Image(systemName: gameManager.isPlaying ? "pause.fill" : "play.fill")
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(.white)
+                        .frame(width: 40, height: 40)
+                        .background(Circle().fill(.white.opacity(0.2)))
+                }
             }
+            .padding(.horizontal, 16)
+            .padding(.top, 12)
+            .padding(.bottom, 8)
+
+            // ── Compact card + timer panel ────────────────────────────
+            compactCardPanel
+                .padding(.horizontal, 16)
+                .padding(.bottom, 8)
+
+            // ── Board fills all remaining space ───────────────────────
+            Text(settings.localize(.markYourCard))
+                .font(.system(size: 11, weight: .medium))
+                .foregroundStyle(.white.opacity(0.65))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 28)
+                .padding(.bottom, 2)
+
+            LoteriaBoardView(
+                board: gameManager.playerBoard,
+                title: settings.localize(.yourBoard),
+                isInteractive: true,
+                calledCardIDs: calledCardIDs,
+                onTap: { cellID in gameManager.playerTap(cellID: cellID) }
+            )
+            .padding(.horizontal, 16)
+            .frame(maxHeight: .infinity)
+            .padding(.bottom, 16)
         }
     }
 
     // MARK: - Subviews
 
-    private var currentCardPanel: some View {
-        VStack(spacing: 10) {
+    /// Slim horizontal card panel — thumbnail left, name + riddle vertically centered right, timer pinned to bottom
+    private var compactCardPanel: some View {
+        Group {
             if let card = gameManager.currentCard {
-                HStack {
-                    Text("#\(card.id)")
-                        .font(.system(size: 14, weight: .bold))
-                        .foregroundStyle(.white)
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 4)
-                        .background(Capsule().fill(.white.opacity(0.3)))
+                VStack(spacing: 0) {
+                    HStack(alignment: .center, spacing: 14) {
+                        // Thumbnail — vertically centered in the HStack
+                        Image(card.imageName)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 60, height: 84)
+                            .clipShape(RoundedRectangle(cornerRadius: 9))
+                            .shadow(radius: 5, y: 3)
 
-                    Spacer()
+                        // Name + riddle, centered vertically
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text(card.name)
+                                .font(.system(size: 22, weight: .black))
+                                .foregroundStyle(.white)
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.8)
 
-                    Text("\(gameManager.currentCardIndex + 1) / 54")
-                        .font(.system(size: 13, weight: .semibold))
-                        .foregroundStyle(.white.opacity(0.8))
-                }
+                            Text(card.riddle)
+                                .font(.system(size: 13, weight: .medium))
+                                .foregroundStyle(.white.opacity(0.85))
+                                .lineLimit(2)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
 
-                HStack(spacing: 16) {
-                    Image(card.imageName)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 130)
-                        .shadow(radius: 6, y: 3)
+                        Spacer()
 
-                    VStack(alignment: .leading, spacing: 6) {
-                        Text(card.name)
-                            .font(.system(size: 26, weight: .bold))
-                            .foregroundStyle(.white)
-
-                        Text(card.riddle)
-                            .font(.system(size: 14, weight: .medium))
-                            .foregroundStyle(.white.opacity(0.85))
-                            .fixedSize(horizontal: false, vertical: true)
+                        // Progress counter top-right
+                        Text("\(gameManager.currentCardIndex + 1)/54")
+                            .font(.system(size: 11, weight: .semibold))
+                            .foregroundStyle(.white.opacity(0.65))
+                            .monospacedDigit()
+                            .alignmentGuide(.top) { d in d[.top] }
                     }
 
-                    Spacer()
+                    // Timer bar pinned to the bottom of the panel
+                    HStack(spacing: 8) {
+                        ProgressView(value: gameManager.timerProgress)
+                            .tint(.green.opacity(0.9))
+                            .background(.white.opacity(0.25))
+                            .clipShape(Capsule())
+
+                        Text(String(format: "%.1fs", selectedDifficulty.interval * (1.0 - gameManager.timerProgress)))
+                            .font(.system(size: 11, weight: .bold))
+                            .foregroundStyle(.white.opacity(0.85))
+                            .monospacedDigit()
+                            .frame(width: 34, alignment: .trailing)
+                    }
+                    .padding(.top, 10)
                 }
+                .padding(12)
+                .background(RoundedRectangle(cornerRadius: 16).fill(.white.opacity(0.15)))
+
             } else {
-                VStack(spacing: 12) {
+                // Pre-game idle state
+                HStack(spacing: 12) {
                     Image(systemName: "sparkles")
-                        .font(.system(size: 44))
+                        .font(.system(size: 28))
                         .foregroundStyle(.white.opacity(0.8))
                         .symbolEffect(.pulse)
+                        .frame(width: 60)
 
                     Text(settings.localize(.pressPlayToStart))
-                        .font(.system(size: 18, weight: .bold))
+                        .font(.system(size: 16, weight: .bold))
                         .foregroundStyle(.white)
                 }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 16)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(12)
+                .background(RoundedRectangle(cornerRadius: 16).fill(.white.opacity(0.15)))
             }
         }
-        .padding(16)
-        .background(RoundedRectangle(cornerRadius: 20).fill(.white.opacity(0.15)))
-    }
-
-    private var timerBar: some View {
-        VStack(spacing: 6) {
-            HStack {
-                Text(settings.localize(.nextCardIn))
-                    .font(.system(size: 12, weight: .medium))
-                    .foregroundStyle(.white.opacity(0.7))
-
-                Spacer()
-
-                Text(String(format: "%.1fs", selectedDifficulty.interval * (1.0 - gameManager.timerProgress)))
-                    .font(.system(size: 12, weight: .bold))
-                    .foregroundStyle(.white.opacity(0.9))
-                    .monospacedDigit()
-            }
-            .opacity(gameManager.currentCard == nil ? 0 : 1)
-
-            ProgressView(value: gameManager.timerProgress)
-                .tint(.green.opacity(0.8))
-                .background(.white.opacity(0.3))
-                .clipShape(Capsule())
-        }
-        .frame(height: 32)
     }
 
     private var scorePanel: some View {
@@ -401,6 +394,78 @@ struct PlayModeView: View {
                 .foregroundStyle(.white.opacity(0.7))
         }
         .frame(maxWidth: .infinity)
+    }
+
+    private var rivalSheetContent: some View {
+        NavigationStack {
+            ZStack {
+                // Background matches game theme
+                LinearGradient(
+                    colors: [
+                        Color(red: 0.2, green: 0.4, blue: 0.9),
+                        Color(red: 0.1, green: 0.6, blue: 1.0)
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+                .ignoresSafeArea()
+
+                VStack(spacing: 16) {
+                    // Easy mode notice banner
+                    if selectedDifficulty == .easy {
+                        HStack(spacing: 8) {
+                            Image(systemName: "pause.circle.fill")
+                                .foregroundStyle(.yellow)
+                            Text("Game paused while viewing rival")
+                                .font(.system(size: 13, weight: .semibold))
+                                .foregroundStyle(.white)
+                        }
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 10)
+                        .background(Capsule().fill(.black.opacity(0.25)))
+                        .padding(.top, 8)
+                    }
+
+                    // CPU progress counter
+                    HStack {
+                        Spacer()
+                        Label(
+                            "\(gameManager.cpuBoard.markedCount)/16 marked",
+                            systemImage: "desktopcomputer"
+                        )
+                        .font(.system(size: 13, weight: .semibold))
+                        .foregroundStyle(.white.opacity(0.85))
+                        Spacer()
+                    }
+
+                    // CPU board (read-only)
+                    LoteriaBoardView(
+                        board: gameManager.cpuBoard,
+                        title: settings.localize(.cpuBoard),
+                        isInteractive: false,
+                        calledCardIDs: calledCardIDs,
+                        onTap: nil
+                    )
+                    .padding(.horizontal, 20)
+
+                    Spacer()
+                }
+            }
+            .navigationTitle("Rival's Board")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarColorScheme(.dark, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Close") {
+                        showRivalPopup = false
+                    }
+                    .font(.system(size: 16, weight: .bold))
+                    .foregroundStyle(.white)
+                }
+            }
+        }
+        .presentationDetents([.medium, .large])
+        .presentationDragIndicator(.visible)
     }
 
     private var scorePopupContent: some View {
@@ -509,18 +574,18 @@ struct PlayModeView: View {
         return Button {
             selectedDifficulty = diff
         } label: {
-            HStack(spacing: 14) {
+            HStack(spacing: 10) {
                 Image(systemName: icon)
-                    .font(.system(size: 22))
+                    .font(.system(size: 18))
                     .foregroundStyle(accentColor)
-                    .frame(width: 32)
+                    .frame(width: 26)
 
-                VStack(alignment: .leading, spacing: 2) {
+                VStack(alignment: .leading, spacing: 1) {
                     Text(label)
-                        .font(.system(size: 17, weight: .semibold))
+                        .font(.system(size: 15, weight: .semibold))
                         .foregroundStyle(.white)
                     Text(desc)
-                        .font(.system(size: 13))
+                        .font(.system(size: 12))
                         .foregroundStyle(.white.opacity(0.7))
                 }
 
@@ -528,13 +593,14 @@ struct PlayModeView: View {
 
                 if isSelected {
                     Image(systemName: "checkmark.circle.fill")
-                        .font(.system(size: 22))
+                        .font(.system(size: 18))
                         .foregroundStyle(.green)
                 }
             }
-            .padding(16)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 10)
             .background(
-                RoundedRectangle(cornerRadius: 14)
+                RoundedRectangle(cornerRadius: 12)
                     .fill(.white.opacity(isSelected ? 0.3 : 0.12))
             )
         }
@@ -568,25 +634,26 @@ struct PlayModeView: View {
                 selectedWinConditions.insert(condition)
             }
         } label: {
-            HStack(spacing: 14) {
+            HStack(spacing: 10) {
                 Image(systemName: icon)
-                    .font(.system(size: 20))
+                    .font(.system(size: 16))
                     .foregroundStyle(.white.opacity(0.9))
-                    .frame(width: 32)
+                    .frame(width: 26)
 
                 Text(label)
-                    .font(.system(size: 17, weight: .semibold))
+                    .font(.system(size: 15, weight: .semibold))
                     .foregroundStyle(.white)
 
                 Spacer()
 
                 Image(systemName: isSelected ? "checkmark.square.fill" : "square")
-                    .font(.system(size: 22))
+                    .font(.system(size: 18))
                     .foregroundStyle(isSelected ? .green : .white.opacity(0.5))
             }
-            .padding(16)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 10)
             .background(
-                RoundedRectangle(cornerRadius: 14)
+                RoundedRectangle(cornerRadius: 12)
                     .fill(.white.opacity(isSelected ? 0.25 : 0.1))
             )
         }
