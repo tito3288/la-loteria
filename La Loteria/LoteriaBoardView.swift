@@ -87,12 +87,6 @@ private struct BoardCellView: View {
                     .foregroundStyle(.white)
                     .shadow(radius: 2)
             }
-
-            // "Available to mark" pulse border
-            if isCalled && isInteractive && !cell.isMarked {
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.yellow, lineWidth: 2)
-            }
         }
         .animation(.easeInOut(duration: 0.25), value: cell.isMarked)
     }
